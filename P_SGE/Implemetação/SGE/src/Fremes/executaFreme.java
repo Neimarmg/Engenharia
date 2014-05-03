@@ -1,14 +1,12 @@
 package Fremes;
 import java.awt.Container;
-import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class IniciaPrograma extends JFrame implements ActionListener {	
+public class executaFreme extends JFrame implements ActionListener {	
 
 	private static final long serialVersionUID = 1L;
 	
@@ -19,9 +17,7 @@ public class IniciaPrograma extends JFrame implements ActionListener {
 	JButton operacinal;
 	JButton sair;
 	
-	public IniciaPrograma() {
-		super("SGE - Sistema de gestão para escritórios");				
-	
+	private void setaObjetos() {	
 		abreCaixa = new JButton("Abre caixa");
 		abreCaixa.addActionListener(this);		
 		
@@ -37,21 +33,18 @@ public class IniciaPrograma extends JFrame implements ActionListener {
 		sair = new JButton("Sair"); 
 		sair.addActionListener(this);
 		
-		
 		grid.setLayout(new GridLayout(5,5,2,2));
 		grid.add(abreCaixa);
 		grid.add(operacinal);
 		grid.add(fechaCaixa);
 		grid.add(confere);
-		grid.add(sair);
-		
-		LayoutFreme();
+		grid.add(sair);		
 	}
 	
-	public void LayoutFreme() {		
+	private void defineLayout() {		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(900,600);	
-		setLocation(200, 100);
+		setLocation(90, 90);
 		setVisible(true);
 	}
 
@@ -61,10 +54,17 @@ public class IniciaPrograma extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()== abreCaixa ){
 			logCaixa logCaixa = new logCaixa();
-			Frame.getFrames();
+			logCaixa.validate();
 			
 		}
 		
 	}
+	
+	public executaFreme() {
+		super("SGE - Sistema de gestão para escritórios");				
+		setaObjetos();
+		defineLayout();		
+	}
+	
 }
 

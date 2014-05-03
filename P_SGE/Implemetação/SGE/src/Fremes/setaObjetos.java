@@ -3,26 +3,27 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 
-public class CaixaDiario extends JFrame implements ActionListener {	
+public class setaObjetos extends JFrame implements ActionListener {	
 
 	private static final long serialVersionUID = 1L;	
 	Container grid = getContentPane();
-	JComboBox opcOperação;
+	JComboBox<Object> opcOperação;
 	JTextField user;
 	JTextField senha;
 	JButton validar;
 	JButton sair;
 	
-	public CaixaDiario() {
+	private setaObjetos() {
 		super("Abertura de caixa diário");				
 	
-		opcOperação = new JComboBox();
+		opcOperação = new JComboBox<Object>();
 		opcOperação.addActionListener(this);		
 		
 		user = new JTextField("Usuário: "); 
@@ -45,10 +46,10 @@ public class CaixaDiario extends JFrame implements ActionListener {
 		grid.add(validar);
 		grid.add(sair);
 		
-		LayoutFreme();
+		
 	}
 	
-	public void LayoutFreme() {		
+	private void defineLayout() {		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(250,300);	
 		setLocation(300, 200);
@@ -62,8 +63,16 @@ public class CaixaDiario extends JFrame implements ActionListener {
 		if (e.getSource()== opcOperação ){
 			
 			
-		}
-		
+		}		
 	}
+	
+	public void executaFremeCaixaDiario() {	
+		setaObjetos.getFrames();
+		defineLayout();
+	}
+		
+	
+	
+	
 }
 
