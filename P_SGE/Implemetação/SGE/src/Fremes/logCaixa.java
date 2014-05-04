@@ -1,69 +1,126 @@
 package Fremes;
-import java.awt.Container;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class logCaixa extends JFrame implements ActionListener {	
+import java.awt.Font;
 
-	private static final long serialVersionUID = 1L;	
-	Container grid = getContentPane();
-	JComboBox opcOperação;
-	JTextField user;
-	JTextField senha;
-	JButton validar;
-	JButton sair;
-	
-	public logCaixa() {
-		super("Log validação de caixa");				
-	
-		opcOperação = new JComboBox();
-		opcOperação.addActionListener(this);		
-		
-		user = new JTextField("Usuário: "); 
-		user.addActionListener(this);		
-		
-		senha = new JTextField("Senha: "); 
-		senha.addActionListener(this);		
-		
-		validar = new JButton("Validar"); 
-		validar.addActionListener(this);
+import javax.swing.JButton;
 
-		sair = new JButton("Sair"); 
-		sair.addActionListener(this);
-		
-		
-		grid.setLayout(new GridLayout(5,5,2,2));
-		grid.add(opcOperação);
-		grid.add(user);
-		grid.add(senha);
-		grid.add(validar);
-		grid.add(sair);
-		
-		LayoutFreme();
-	}
-	
-	public void LayoutFreme() {		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(300,350);	
-		setLocation(300, 200);
-		setVisible(true);
-	}
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+import controller.Validador;
+
+public class logCaixa extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private static JTextField textSenha;
+	private JLabel lblSenha;
+	private JButton btnEntra;
+	private static JComboBox<String> cargo;
+	private JLabel lblCargo;
 
 	
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()== opcOperação ){
-			
-			
-		}
+	public static void setCargo(JComboBox<String> cargo) {
+		logCaixa.cargo = cargo;
+	}
+	
+	public static JComboBox<String> getCargo() {
+		return cargo;
+	}
+	
+	public static void setTextSenha(JTextField textSenha) {
+		logCaixa.textSenha = textSenha;
+	}
+	
+	public static JTextField getTextSenha() {
+		return textSenha;
+	}
+	
+	private void addUsuario() {
+		cargo = new JComboBox<String>();
+		cargo.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Diretor", "Auxiliar"}));
+		cargo.setBounds(83, 48, 127, 29);
+		contentPane.add(cargo);
+		
+		lblCargo = new JLabel("Cargo:");
+		lblCargo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCargo.setBounds(27, 49, 52, 26);
+		contentPane.add(lblCargo);
+	}
+	
+	
+	private void addSenha() {
+		lblSenha = new JLabel("Senha:");
+		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSenha.setBounds(27, 102, 52, 26);
+		contentPane.add(lblSenha);
+		
+		textSenha = new JTextField();
+		textSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
+		textSenha.setColumns(10);
+		textSenha.setBounds(83, 101, 127, 29);
+		contentPane.add(textSenha);
+	}
+	
+	
+	private void addBtnEntra() {
+		btnEntra = new JButton("Entrar");
+		btnEntra.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnEntra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				setCargo(cargo);
+				setTextSenha(textSenha);
+				Validador.validaAcesso(getCargo(),getTextSenha());
+			}
+		});
+		btnEntra.setBounds(83, 155, 127, 37);
+		contentPane.add(btnEntra);
 		
 	}
+	
+	
+	private void defineLayaut() {		
+		setBounds(100, 100, 291, 273);
+		contentPane = new JPanel();
+		setContentPane(contentPane);
+		contentPane.setLayout(null);	
+	}
+	
+	
+	/**
+	 * Create the frame.
+	 */
+	private logCaixa() {
+		super("Abilitação da atividade");
+		defineLayaut();
+		addUsuario();
+		addSenha();
+		addBtnEntra();
+	}
+	
+	
+	/**
+	 * Abre freme 
+	 */
+	public static void abreFreme() {
+		logCaixa frame = new logCaixa();
+		frame.setVisible(true);		
+	}
+
+
+	
+	
+	
+	
 }
-

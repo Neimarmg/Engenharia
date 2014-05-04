@@ -1,29 +1,32 @@
 package model;
 
 public class Usuarios {
-	static int codOpcao,user,senha;
+	static String cargo = "Diretor";
+	static String user = "Jose";
+	static String senha = "1234";
 	
-	public static void setCodOpcao(int codOpcao) {
-		Usuarios.codOpcao = codOpcao;
+		
+	public static void setCodOpcao(String  cargo) {
+		Usuarios.cargo = cargo;
 	}
 	
-	public static void setUser(int user) {
+	public static void setUser(String  user) {
 		Usuarios.user = user;
 	}
 	
-	public static void setSenha(int senha) {
+	public static void setSenha(String  senha) {
 		Usuarios.senha = senha;
 	}
 	
-	public static int getCodOpcao() {
-		return codOpcao;
+	public static String getCargo() {
+		return cargo;
 	}
 	
-	public static int getUser() {
+	public static String  getUser() {
 		return user;
 	}
 	
-	public static int getSenha() {
+	public static String  getSenha() {
 		return senha;
 	}
 }
