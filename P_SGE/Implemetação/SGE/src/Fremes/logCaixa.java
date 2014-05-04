@@ -17,7 +17,10 @@ import javax.swing.DefaultComboBoxModel;
 
 import controller.Validador;
 
-
+/**
+ * Classe log destinada a todas a operaçãoes de caixa
+ * @author Neimar
+ */
 public class logCaixa extends JFrame {
 	
 	private static final long serialVersionUID = 1L;

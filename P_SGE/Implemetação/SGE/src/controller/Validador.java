@@ -4,6 +4,10 @@ import Fremes.AbrirCaixa;
 import Fremes.Prints;
 import model.Usuarios;
 
+/**
+ * Classe responsavel pala auteticação de acessos
+ * @author Neimar
+ */
 public class Validador {
 	
 	private static boolean validaCargo(String cargo){

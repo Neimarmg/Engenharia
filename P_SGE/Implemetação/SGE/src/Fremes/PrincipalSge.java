@@ -16,11 +16,14 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
 
+/**
+ * Classe freme principal de execução do programa SGE
+ * @author Neimar
+ *
+ */
 public class PrincipalSge extends JFrame {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 

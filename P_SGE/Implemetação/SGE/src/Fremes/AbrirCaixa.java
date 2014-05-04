@@ -12,12 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-
+/**
+ * Classe responsavel pelas registros as operação de abertura de caixa
+ * @author Neimar
+ */
 public class AbrirCaixa extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtSaldoInicial;
