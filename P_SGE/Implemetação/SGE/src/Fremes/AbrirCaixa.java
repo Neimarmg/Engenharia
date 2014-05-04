@@ -5,11 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import java.awt.Font;
-
 import javax.swing.JButton;
-
+import model.AbreCaixa;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -28,7 +26,7 @@ public class AbrirCaixa extends JFrame {
 	private JLabel lblData;
 	private JTextField txtCodCaixa;
 	private JLabel lblCod;
-	private JButton btnCancelar;
+	private JButton btnLiberar;
 	private JComboBox<String> txtResponsavel;
 	private JLabel lblResponsavel;
 
@@ -36,12 +34,12 @@ public class AbrirCaixa extends JFrame {
 	private void addSaldoInicial() {
 		JLabel lblNewLabel = new JLabel("Saldo inicial:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(9, 178, 75, 26);
+		lblNewLabel.setBounds(189, 119, 76, 26);
 		contentPane.add(lblNewLabel);
 		
 		txtSaldoInicial = new JTextField();
 		txtSaldoInicial.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtSaldoInicial.setBounds(92, 177, 171, 29);
+		txtSaldoInicial.setBounds(263, 118, 97, 29);
 		contentPane.add(txtSaldoInicial);
 		txtSaldoInicial.setColumns(10);
 	}
@@ -49,14 +47,15 @@ public class AbrirCaixa extends JFrame {
 	
 	private void addIdCaixa() {
 		txtCodCaixa = new JTextField();
+		txtCodCaixa.setForeground(new Color(192, 192, 192));
 		txtCodCaixa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtCodCaixa.setColumns(10);
-		txtCodCaixa.setBounds(92, 46, 171, 29);
+		txtCodCaixa.setBounds(99, 46, 86, 29);
 		contentPane.add(txtCodCaixa);
 		
-		lblCod = new JLabel("cod:");
+		lblCod = new JLabel("Id caixa:");
 		lblCod.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCod.setBounds(7, 47, 75, 26);
+		lblCod.setBounds(10, 47, 86, 26);
 		contentPane.add(lblCod);	
 	}
 	
@@ -65,38 +64,44 @@ public class AbrirCaixa extends JFrame {
 		txtDataCaixa = new JTextField();
 		txtDataCaixa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtDataCaixa.setColumns(10);
-		txtDataCaixa.setBounds(92, 114, 171, 29);
+		txtDataCaixa.setBounds(99, 118, 86, 29);
 		contentPane.add(txtDataCaixa);
 		
-		lblData = new JLabel("Data:");
+		lblData = new JLabel("Data abertura:");
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblData.setBounds(9, 115, 75, 26);
+		lblData.setBounds(10, 119, 86, 26);
 		contentPane.add(lblData);		
 	}
 	
 	
 	private void addResponsavel() {
 		txtResponsavel = new JComboBox<String>();
+		txtResponsavel.setForeground(new Color(0, 0, 0));
 		txtResponsavel.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Jose", "Carlos"}));
-		txtResponsavel.setBounds(92, 243, 171, 29);
+		txtResponsavel.setBounds(99, 192, 261, 29);
 		contentPane.add(txtResponsavel);
 		
 		lblResponsavel = new JLabel("Responsável:");
 		lblResponsavel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblResponsavel.setBounds(10, 244, 86, 26);
+		lblResponsavel.setBounds(10, 193, 86, 26);
 		contentPane.add(lblResponsavel);
 	}
 	
-	private void addBtnCancelar() {
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+	private void addBtnLiberarCaixa() {
+		btnLiberar = new JButton("Liberar");
+		btnLiberar.setForeground(new Color(34, 139, 34));
+		btnLiberar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Prints.ObjetoNaoImplementado();	;
+				
+				AbreCaixa.setCodCaixa(Integer.parseInt(txtCodCaixa.getText()));
+				AbreCaixa.setDateAbertura(((String) txtDataCaixa.getText()));
+				AbreCaixa.setSaldoInicial(Integer.parseInt(txtSaldoInicial.getText()));
+				AbreCaixa.setFucionario(((String) txtResponsavel.getSelectedItem ()).intern());			
 			}
 		});
-		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCancelar.setBounds(92, 378, 171, 37);
-		contentPane.add(btnCancelar);		
+		btnLiberar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLiberar.setBounds(257, 264, 103, 37);
+		contentPane.add(btnLiberar);		
 	}
 	
 	
@@ -109,13 +114,13 @@ public class AbrirCaixa extends JFrame {
 				Prints.ObjetoNaoImplementado();	
 			}
 		});
-		btnExcluir.setBounds(92, 306, 171, 37);
+		btnExcluir.setBounds(93, 264, 103, 37);
 		contentPane.add(btnExcluir);
 	}
 	
 	
 	private void defineLayaut() {		
-		setBounds(200, 150, 352, 507);
+		setBounds(200, 150, 407, 400);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
@@ -133,7 +138,7 @@ public class AbrirCaixa extends JFrame {
 		addSaldoInicial();
 		addResponsavel();
 		addBtnExcluir();
-		addBtnCancelar();		
+		addBtnLiberarCaixa();		
 	}
 	
 	

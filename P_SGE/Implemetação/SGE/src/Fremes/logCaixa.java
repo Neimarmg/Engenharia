@@ -82,7 +82,7 @@ public class logCaixa extends JFrame {
 			public void actionPerformed(ActionEvent e) {			
 				setCago((( String ) txtCargo.getSelectedItem ()).intern());
 				setSenha(( String ) txtSenha.getText());
-				Validador.validaAcesso(getCargo(),getSenha());				
+				Validador.verificaAcesso(getCargo(),getSenha());
 			}
 		});
 		btnEntra.setBounds(83, 155, 127, 37);

@@ -24,11 +24,34 @@ public class Validador {
 	}
 	
 	
-	public static void validaAcesso(String cargo, String senha){
-		if (validaCargo(cargo)== true && validaSenha(senha)== true  ){
+	private static void autenticaUser(String cargo, String senha){
+		if (validaCargo(cargo) == true && validaSenha(senha)== true){
 			AbrirCaixa.abreFreme();		
 		}else{
-			Prints.msg("Senha ou cargo inválido");
+			Prints.msg("Senha inválida");			
 		}
+	}	
+	
+		
+	public static void verificaAcesso(String cargo, String senha){
+		
+		switch (cargo) {
+		
+		case "Diretor":	
+			autenticaUser(cargo, senha);	
+			break;
+			
+		case "Auxiliar":
+			Usuarios.setSenha("123");
+			Usuarios.setCargo("Auxiliar");
+			autenticaUser(cargo, senha);			
+			break;		
+				
+		default:
+			Prints.msg("Senha ou cargo inválido");	
+			break;
+		}			
 	}
 }
+
+

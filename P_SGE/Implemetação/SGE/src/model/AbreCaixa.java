@@ -1,24 +1,23 @@
 package model;
 
-import javax.xml.crypto.Data;
-
 public class AbreCaixa {
-	static int codCaixa, codFucionario;
-	static Data dateAbertura;
-	static double saldoInicial; 
+	static int codCaixa;
+	static String fucionario, dateAbertura;
+	static int saldoInicial; 
 	
 	public static void setCodCaixa(int codCaixa) {
 		AbreCaixa.codCaixa = codCaixa;
 	}
-	public static void setCodFucionario(int codFucionario) {
-		AbreCaixa.codFucionario = codFucionario;
+	
+	public static void setFucionario(String fucionario) {
+		AbreCaixa.fucionario = fucionario;
 	}
 	
-	public static void setDateAbertura(Data dateAbertura) {
+	public static void setDateAbertura(String dateAbertura) {
 		AbreCaixa.dateAbertura = dateAbertura;
 	}
 	
-	public static void setSaldoInicial(double saldoInicial) {
+	public static void setSaldoInicial(int saldoInicial) {
 		AbreCaixa.saldoInicial = saldoInicial;
 	}
 	
@@ -26,14 +25,15 @@ public class AbreCaixa {
 		return codCaixa;
 	}
 	
-	public static int getCodFucionario() {
-		return codFucionario;
+	public static String getFucionario() {
+		return fucionario;
 	}
-	public static Data getDateAbertura() {
+	
+	public static String getDateAbertura() {
 		return dateAbertura;
 	}
 	
-	public static double getSaldoInicial() {
+	public static int getSaldoInicial() {
 		return saldoInicial;
 	}
 }

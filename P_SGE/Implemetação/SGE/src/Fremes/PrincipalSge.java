@@ -13,6 +13,8 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 import javax.swing.border.EtchedBorder;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 public class PrincipalSge extends JFrame {
 
@@ -31,7 +33,15 @@ public class PrincipalSge extends JFrame {
 
 	
 	public void fechaCaixa(){
-		btnFecharCaixa.setForeground(new Color(184, 134, 11));
+		btnFecharCaixa.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent arg0) {
+			}
+			public void ancestorMoved(AncestorEvent arg0) {
+			}
+			public void ancestorRemoved(AncestorEvent arg0) {
+			}
+		});
+		btnFecharCaixa.setForeground(SystemColor.activeCaption);
 		
 		btnFecharCaixa.setBounds(110, 149, 293, 60);
 		panel_1.add(btnFecharCaixa);
@@ -41,12 +51,20 @@ public class PrincipalSge extends JFrame {
 			}
 		});
 		btnFecharCaixa.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		btnFecharCaixa.setBackground(SystemColor.activeCaptionBorder);
+		btnFecharCaixa.setBackground(new Color(102, 205, 170));
 		
 	}
 	
 	public void confereCaixa(){
-		btnConferirCaixa.setForeground(new Color(184, 134, 11));
+		btnConferirCaixa.addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent arg0) {
+			}
+			public void ancestorMoved(AncestorEvent arg0) {
+			}
+			public void ancestorRemoved(AncestorEvent arg0) {
+			}
+		});
+		btnConferirCaixa.setForeground(SystemColor.activeCaption);
 		btnConferirCaixa.setBounds(110, 51, 293, 60);
 		panel_1.add(btnConferirCaixa);
 		btnConferirCaixa.addActionListener(new ActionListener() {
@@ -56,14 +74,16 @@ public class PrincipalSge extends JFrame {
 			}			
 		});
 		btnConferirCaixa.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		btnConferirCaixa.setBackground(SystemColor.activeCaptionBorder);
+		btnConferirCaixa.setBackground(new Color(102, 205, 170));
 		
 	}
 	
 	
 	public void agrupaOperacoesFechamento(){	
 		panel_1.setLayout(null);
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Opera\u00E7\u00F5es de fechamento", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 70, 213)));
+		panel_1.setBorder(new TitledBorder(
+			new EtchedBorder(EtchedBorder.LOWERED, null, null), 
+			"Opera\u00E7\u00F5es de fechamento", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 70, 213)));
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setBounds(55, 320, 518, 246);
 		contentPane.add(panel_1);
@@ -76,14 +96,13 @@ public class PrincipalSge extends JFrame {
 	public void abreCaixa(){
 		btnAIniciarCaixa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				logCaixa.abreFreme();				
-			
+				logCaixa.abreFreme();			
 			}
 		});
-		btnAIniciarCaixa.setForeground(new Color(0, 128, 0));
+		btnAIniciarCaixa.setForeground(SystemColor.activeCaption);
 		btnAIniciarCaixa.setBounds(107, 50, 296, 60);
 		OpracoesCaixa.add(btnAIniciarCaixa);
-		btnAIniciarCaixa.setBackground(new Color(162, 200, 169));
+		btnAIniciarCaixa.setBackground(new Color(102, 205, 170));
 		btnAIniciarCaixa.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		
 	}
@@ -96,9 +115,9 @@ public class PrincipalSge extends JFrame {
 				Prints.ObjetoNaoImplementado();	
 			}
 		});
-		btnAbrirModoOperacional.setForeground(new Color(0, 128, 0));
+		btnAbrirModoOperacional.setForeground(Color.YELLOW);
 		btnAbrirModoOperacional.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		btnAbrirModoOperacional.setBackground(new Color(162, 200, 169));
+		btnAbrirModoOperacional.setBackground(new Color(102, 205, 170));
 		btnAbrirModoOperacional.setBounds(107, 150, 296, 60);
 		OpracoesCaixa.add(btnAbrirModoOperacional);
 
@@ -107,7 +126,9 @@ public class PrincipalSge extends JFrame {
 	
 	public void agrupaOperaçõesCaixa(){		
 		OpracoesCaixa.setBackground(SystemColor.window);
-		OpracoesCaixa.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Opera\u00E7\u00F5es de abertura", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 70, 213)));
+		OpracoesCaixa.setBorder(
+			new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), 
+					"Opera\u00E7\u00F5es de abertura", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 70, 213)));
 		OpracoesCaixa.setBounds(55, 55, 518, 246);
 		contentPane.add(OpracoesCaixa);
 		OpracoesCaixa.setLayout(null);
@@ -121,7 +142,7 @@ public class PrincipalSge extends JFrame {
 	 * Define layaut do freme
 	 */
 	public void defineLayaut(){
-		setBackground(SystemColor.window);
+		setBackground(new Color(204, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(80, 80, 633, 649);
 		contentPane = new JPanel();
