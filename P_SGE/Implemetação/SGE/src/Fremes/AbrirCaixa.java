@@ -115,7 +115,7 @@ public class AbrirCaixa extends JFrame {
 	
 	
 	private void defineLayaut() {		
-		setBounds(100, 100, 352, 507);
+		setBounds(200, 150, 352, 507);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	

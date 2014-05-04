@@ -69,8 +69,7 @@ public class PrincipalSge extends JFrame {
 		contentPane.add(panel_1);
 		
 		confereCaixa();
-		fechaCaixa();
-		
+		fechaCaixa();		
 	}
 	
 
@@ -124,7 +123,7 @@ public class PrincipalSge extends JFrame {
 	public void defineLayaut(){
 		setBackground(SystemColor.window);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 633, 665);
+		setBounds(80, 80, 633, 649);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -1,4 +1,5 @@
 package Fremes;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -16,42 +17,42 @@ import javax.swing.DefaultComboBoxModel;
 
 import controller.Validador;
 
-public class logCaixa extends JFrame {
 
-	/**
-	 * 
-	 */
+public class logCaixa extends JFrame {
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private static JTextField textSenha;
+	private static JTextField txtSenha;
 	private JLabel lblSenha;
 	private JButton btnEntra;
-	private static JComboBox<String> cargo;
+	private static JComboBox<?> txtCargo;
 	private JLabel lblCargo;
-
+	private String cargo,senha;
 	
-	
-	public static void setCargo(JComboBox<String> cargo) {
-		logCaixa.cargo = cargo;
+		
+	public void setCago(String cargo) {
+		this.cargo = (String) cargo.toString() ;
 	}
 	
-	public static JComboBox<String> getCargo() {
+	public void setSenha(String senha) {
+		this.senha = (String) senha;
+	}
+	
+	
+	public String getCargo() {
 		return cargo;
 	}
 	
-	public static void setTextSenha(JTextField textSenha) {
-		logCaixa.textSenha = textSenha;
+	public String getSenha() {
+		return senha;
 	}
 	
-	public static JTextField getTextSenha() {
-		return textSenha;
-	}
-	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addUsuario() {
-		cargo = new JComboBox<String>();
-		cargo.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Diretor", "Auxiliar"}));
-		cargo.setBounds(83, 48, 127, 29);
-		contentPane.add(cargo);
+		txtCargo = new JComboBox();
+		txtCargo.setModel(new DefaultComboBoxModel(new String[] {"", "Diretor", "Auxiliar"}));
+		txtCargo.setBounds(83, 48, 127, 29);
+		contentPane.add(txtCargo);
 		
 		lblCargo = new JLabel("Cargo:");
 		lblCargo.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -66,11 +67,11 @@ public class logCaixa extends JFrame {
 		lblSenha.setBounds(27, 102, 52, 26);
 		contentPane.add(lblSenha);
 		
-		textSenha = new JTextField();
-		textSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textSenha.setColumns(10);
-		textSenha.setBounds(83, 101, 127, 29);
-		contentPane.add(textSenha);
+		txtSenha = new JTextField();
+		txtSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
+		txtSenha.setColumns(10);
+		txtSenha.setBounds(83, 101, 127, 29);
+		contentPane.add(txtSenha);
 	}
 	
 	
@@ -79,9 +80,9 @@ public class logCaixa extends JFrame {
 		btnEntra.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEntra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
-				setCargo(cargo);
-				setTextSenha(textSenha);
-				Validador.validaAcesso(getCargo(),getTextSenha());
+				setCago((( String ) txtCargo.getSelectedItem ()).intern());
+				setSenha(( String ) txtSenha.getText());
+				Validador.validaAcesso(getCargo(),getSenha());				
 			}
 		});
 		btnEntra.setBounds(83, 155, 127, 37);
@@ -91,7 +92,7 @@ public class logCaixa extends JFrame {
 	
 	
 	private void defineLayaut() {		
-		setBounds(100, 100, 291, 273);
+		setBounds(300, 300, 291, 273);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
