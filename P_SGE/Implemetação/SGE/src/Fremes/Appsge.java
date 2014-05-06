@@ -21,7 +21,7 @@ import javax.swing.event.AncestorEvent;
  * @author Neimar
  *
  */
-public class maimSge extends JFrame {
+public class Appsge extends JFrame {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -159,7 +159,7 @@ public class maimSge extends JFrame {
 	/**
 	 * Cria freme principal do sistema.
 	 */	
-	public maimSge() {
+	public Appsge() {
 		super("SGE - Sistema de gestão de escritórios");
 		defineLayaut();
 		agrupaOperaçõesCaixa();
@@ -174,7 +174,7 @@ public class maimSge extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					maimSge frame = new maimSge();
+					Appsge frame = new Appsge();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
