@@ -1,7 +1,7 @@
 package Fremes;
 import javax.swing.*;
 
-public class Prints {
+public class Form_Prints {
 	
 	public static void msg(Object desc){	
 		//System.out.print(desc);
@@ -9,6 +9,6 @@ public class Prints {
 	}	
 	
 	public static void ObjetoNaoImplementado(){
-		Prints.msg("Não implementado!");
+		Form_Prints.msg("Não implementado!");
 	}
 }

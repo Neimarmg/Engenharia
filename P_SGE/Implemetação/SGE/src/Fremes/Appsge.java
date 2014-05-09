@@ -13,8 +13,7 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 import javax.swing.border.EtchedBorder;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.AncestorEvent;
+
 
 /**
  * Classe freme principal de execução do programa SGE
@@ -26,31 +25,21 @@ public class Appsge extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
 	
 	JPanel OpracoesCaixa = new JPanel();
 	JButton btnAIniciarCaixa = new JButton("Iniciar caixa");
 	private final JButton btnFecharCaixa = new JButton("Fechar caixa");
 	private final JButton btnConferirCaixa = new JButton("Conferir caixa");
-	private final JPanel panel_1 = new JPanel();
+	private final JPanel painelApp = new JPanel();
 
 	
 	public void fechaCaixa(){
-		btnFecharCaixa.addAncestorListener(new AncestorListener() {
-			public void ancestorAdded(AncestorEvent arg0) {
-			}
-			public void ancestorMoved(AncestorEvent arg0) {
-			}
-			public void ancestorRemoved(AncestorEvent arg0) {
-			}
-		});
-		btnFecharCaixa.setForeground(SystemColor.activeCaption);
-		
+		btnFecharCaixa.setForeground(SystemColor.window);		
 		btnFecharCaixa.setBounds(110, 149, 293, 60);
-		panel_1.add(btnFecharCaixa);
+		painelApp.add(btnFecharCaixa);		
 		btnFecharCaixa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				Prints.ObjetoNaoImplementado();				
+				Form_Prints.ObjetoNaoImplementado();				
 			}
 		});
 		btnFecharCaixa.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
@@ -59,20 +48,12 @@ public class Appsge extends JFrame {
 	}
 	
 	public void confereCaixa(){
-		btnConferirCaixa.addAncestorListener(new AncestorListener() {
-			public void ancestorAdded(AncestorEvent arg0) {
-			}
-			public void ancestorMoved(AncestorEvent arg0) {
-			}
-			public void ancestorRemoved(AncestorEvent arg0) {
-			}
-		});
-		btnConferirCaixa.setForeground(SystemColor.activeCaption);
+		btnConferirCaixa.setForeground(SystemColor.WHITE);
 		btnConferirCaixa.setBounds(110, 51, 293, 60);
-		panel_1.add(btnConferirCaixa);
+		painelApp.add(btnConferirCaixa);
 		btnConferirCaixa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Prints.ObjetoNaoImplementado();		
+				Form_Prints.ObjetoNaoImplementado();		
 			
 			}			
 		});
@@ -83,13 +64,13 @@ public class Appsge extends JFrame {
 	
 	
 	public void agrupaOperacoesFechamento(){	
-		panel_1.setLayout(null);
-		panel_1.setBorder(new TitledBorder(
+		painelApp.setLayout(null);
+		painelApp.setBorder(new TitledBorder(
 			new EtchedBorder(EtchedBorder.LOWERED, null, null), 
 			"Opera\u00E7\u00F5es de fechamento", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 70, 213)));
-		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(55, 320, 518, 246);
-		contentPane.add(panel_1);
+		painelApp.setBackground(Color.WHITE);
+		painelApp.setBounds(55, 320, 518, 246);
+		contentPane.add(painelApp);
 		
 		confereCaixa();
 		fechaCaixa();		
@@ -97,13 +78,13 @@ public class Appsge extends JFrame {
 	
 
 	public void abreCaixa(){
+		btnAIniciarCaixa.setForeground(SystemColor.BLUE);
+		btnAIniciarCaixa.setBounds(107, 50, 296, 60);
 		btnAIniciarCaixa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				logCaixa.abreFreme();			
+				Form_LogCaixa.abreFreme();			
 			}
 		});
-		btnAIniciarCaixa.setForeground(SystemColor.activeCaption);
-		btnAIniciarCaixa.setBounds(107, 50, 296, 60);
 		OpracoesCaixa.add(btnAIniciarCaixa);
 		btnAIniciarCaixa.setBackground(new Color(102, 205, 170));
 		btnAIniciarCaixa.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
@@ -113,13 +94,14 @@ public class Appsge extends JFrame {
 	
 	public void abreModoOperacional(){				
 		JButton btnAbrirModoOperacional = new JButton("Modo operacional");
+		btnAbrirModoOperacional.setForeground(Color.YELLOW);
+		btnAbrirModoOperacional.setFont(new Font("Comic Sans MS", Font.BOLD, 15));		
 		btnAbrirModoOperacional.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Prints.ObjetoNaoImplementado();	
+				Form_Prints.ObjetoNaoImplementado();	
 			}
 		});
-		btnAbrirModoOperacional.setForeground(Color.YELLOW);
-		btnAbrirModoOperacional.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+
 		btnAbrirModoOperacional.setBackground(new Color(102, 205, 170));
 		btnAbrirModoOperacional.setBounds(107, 150, 296, 60);
 		OpracoesCaixa.add(btnAbrirModoOperacional);
@@ -127,6 +109,9 @@ public class Appsge extends JFrame {
 	}
 	
 	
+	/**
+	 * Subdivisão d
+	 */
 	public void agrupaOperaçõesCaixa(){		
 		OpracoesCaixa.setBackground(SystemColor.window);
 		OpracoesCaixa.setBorder(
@@ -168,7 +153,7 @@ public class Appsge extends JFrame {
 	
 	
 	/**
-	 * Launch the application.
+	 * Inicia programa SGE.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

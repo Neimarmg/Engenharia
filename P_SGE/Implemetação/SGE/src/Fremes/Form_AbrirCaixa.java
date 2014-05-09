@@ -7,7 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
-import model.AbreCaixa;
+
+import controller.Validador;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -16,19 +17,19 @@ import java.awt.Color;
  * Classe responsavel pelas registros as operação de abertura de caixa
  * @author Neimar
  */
-public class AbrirCaixa extends JFrame {
+public class Form_AbrirCaixa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtSaldoInicial;
 	private JButton btnExcluir;
 	private JTextField txtDataCaixa;
-	private JLabel lblData;
+	private JLabel lblData = null;
 	private JTextField txtCodCaixa;
-	private JLabel lblCod;
+	private JLabel lblCod = null;
 	private JButton btnLiberar;
 	private JComboBox<String> txtResponsavel;
-	private JLabel lblResponsavel;
+	private JLabel lblResponsavel = null;
 
 	
 	private void addSaldoInicial() {
@@ -91,12 +92,10 @@ public class AbrirCaixa extends JFrame {
 		btnLiberar = new JButton("Liberar");
 		btnLiberar.setForeground(new Color(34, 139, 34));
 		btnLiberar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				AbreCaixa.setCodCaixa(Integer.parseInt(txtCodCaixa.getText()));
-				AbreCaixa.setDateAbertura(((String) txtDataCaixa.getText()));
-				AbreCaixa.setSaldoInicial(Integer.parseInt(txtSaldoInicial.getText()));
-				AbreCaixa.setFucionario(((String) txtResponsavel.getSelectedItem ()).intern());			
+			public void actionPerformed(ActionEvent e) {					
+				Validador.validadata((String) txtDataCaixa.getText());
+				Validador.validaSaldo(Integer.parseInt(txtSaldoInicial.getText()));
+				Validador.validaFuncionario(((String) txtResponsavel.getSelectedItem ()).intern());
 			}
 		});
 		btnLiberar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -111,7 +110,7 @@ public class AbrirCaixa extends JFrame {
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Prints.ObjetoNaoImplementado();	
+				Form_Prints.ObjetoNaoImplementado();	
 			}
 		});
 		btnExcluir.setBounds(93, 264, 103, 37);
@@ -130,7 +129,7 @@ public class AbrirCaixa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private AbrirCaixa() {
+	private Form_AbrirCaixa() {
 		super("Abrir caixa");
 		defineLayaut();
 		addIdCaixa();
@@ -146,7 +145,7 @@ public class AbrirCaixa extends JFrame {
 	 * Abre freme 
 	 */
 	public static void abreFreme() {
-		AbrirCaixa frame = new AbrirCaixa();
+		Form_AbrirCaixa frame = new Form_AbrirCaixa();
 		frame.setVisible(true);		
 	}
 

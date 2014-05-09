@@ -21,7 +21,7 @@ import controller.Validador;
  * Classe log destinada a todas a operaçãoes de caixa
  * @author Neimar
  */
-public class logCaixa extends JFrame {
+public class Form_LogCaixa extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -105,7 +105,7 @@ public class logCaixa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private logCaixa() {
+	private Form_LogCaixa() {
 		super("Abilitação da atividade");
 		defineLayaut();
 		addUsuario();
@@ -118,7 +118,7 @@ public class logCaixa extends JFrame {
 	 * Abre freme 
 	 */
 	public static void abreFreme() {
-		logCaixa frame = new logCaixa();
+		Form_LogCaixa frame = new Form_LogCaixa();
 		frame.setVisible(true);		
 	}
 
