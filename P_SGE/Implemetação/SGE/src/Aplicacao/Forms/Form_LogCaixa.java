@@ -1,4 +1,4 @@
-package Fremes;
+package Aplicacao.Forms;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

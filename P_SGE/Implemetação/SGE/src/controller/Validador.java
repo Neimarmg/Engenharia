@@ -1,7 +1,7 @@
 package controller;
 
-import Fremes.Form_AbrirCaixa;
-import Fremes.Form_Prints;
+import Aplicacao.Forms.Form_AbrirCaixa;
+import Aplicacao.Forms.Form_Prints;
 import model.AbreCaixa;
 import model.Usuarios;
 

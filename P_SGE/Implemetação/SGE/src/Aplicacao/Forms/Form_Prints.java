@@ -1,4 +1,4 @@
-package Fremes;
+package Aplicacao.Forms;
 import javax.swing.*;
 
 public class Form_Prints {
