@@ -4,7 +4,6 @@ public class CalucularBinomioControle {
 	private BinomioEntidade e;
 	
 	
-	
 	public CalucularBinomioControle(BinomioEntidade e) {
 		super();
 		this.e = e;
