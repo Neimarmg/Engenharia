@@ -4,18 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import java.awt.Font;
-
 import javax.swing.JButton;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-
 import C.ValidadorUser;
+import javax.swing.UIManager;
 
 
 /**
@@ -54,8 +50,9 @@ public class Form_LogCaixa extends JFrame {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addUsuario() {
 		txtCargo = new JComboBox();
+		txtCargo.setBackground(UIManager.getColor("Button.disabledShadow"));
 		txtCargo.setModel(new DefaultComboBoxModel(new String[] {"", "Diretor", "Auxiliar"}));
-		txtCargo.setBounds(83, 48, 127, 29);
+		txtCargo.setBounds(83, 48, 224, 29);
 		contentPane.add(txtCargo);
 		
 		lblCargo = new JLabel("Cargo:");
@@ -68,19 +65,21 @@ public class Form_LogCaixa extends JFrame {
 	private void addSenha() {
 		lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSenha.setBounds(27, 102, 52, 26);
+		lblSenha.setBounds(27, 128, 52, 26);
 		contentPane.add(lblSenha);
 		
 		txtSenha = new JTextField();
+		txtSenha.setBackground(UIManager.getColor("Button.disabledShadow"));
 		txtSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtSenha.setColumns(10);
-		txtSenha.setBounds(83, 101, 127, 29);
+		txtSenha.setBounds(83, 127, 224, 29);
 		contentPane.add(txtSenha);
 	}
 	
 	
 	private void addBtnEntra() {
 		btnEntra = new JButton("Entrar");
+		btnEntra.setBackground(UIManager.getColor("Button.highlight"));
 		btnEntra.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEntra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
@@ -89,14 +88,14 @@ public class Form_LogCaixa extends JFrame {
 				ValidadorUser.verificaAcesso(getCargo(),getSenha());
 			}
 		});
-		btnEntra.setBounds(83, 155, 127, 37);
+		btnEntra.setBounds(83, 200, 224, 37);
 		contentPane.add(btnEntra);
 		
 	}
 	
 	
 	private void defineLayaut() {		
-		setBounds(300, 300, 291, 273);
+		setBounds(300, 300, 392, 339);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	
@@ -122,10 +121,4 @@ public class Form_LogCaixa extends JFrame {
 		Form_LogCaixa frame = new Form_LogCaixa();
 		frame.setVisible(true);		
 	}
-
-
-	
-	
-	
-	
 }

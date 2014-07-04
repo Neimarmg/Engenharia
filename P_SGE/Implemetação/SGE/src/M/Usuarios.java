@@ -18,8 +18,6 @@ public class Usuarios {
 		Usuarios.user = user;
 	}
 	
-	
-	
 	public static String getCargo() {
 		return cargo;
 	}

@@ -5,9 +5,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
+
 import C.ValidadorCaixa;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -34,12 +38,13 @@ public class Form_AbrirCaixa extends JFrame {
 	private void addSaldoInicial() {
 		JLabel lblNewLabel = new JLabel("Saldo inicial:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(189, 119, 76, 26);
+		lblNewLabel.setBounds(27, 174, 76, 26);
 		contentPane.add(lblNewLabel);
 		
 		txtSaldoInicial = new JTextField();
+		txtSaldoInicial.setForeground(Color.BLACK);
 		txtSaldoInicial.setFont(new Font("Tahoma", Font.BOLD, 11));
-		txtSaldoInicial.setBounds(263, 118, 97, 29);
+		txtSaldoInicial.setBounds(122, 173, 261, 29);
 		contentPane.add(txtSaldoInicial);
 		txtSaldoInicial.setColumns(10);
 	}
@@ -47,43 +52,45 @@ public class Form_AbrirCaixa extends JFrame {
 	
 	private void addIdCaixa() {
 		txtCodCaixa = new JTextField();
-		txtCodCaixa.setForeground(new Color(192, 192, 192));
+		txtCodCaixa.setForeground(Color.BLACK);
 		txtCodCaixa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtCodCaixa.setColumns(10);
-		txtCodCaixa.setBounds(99, 46, 86, 29);
+		txtCodCaixa.setBounds(122, 46, 261, 29);
 		contentPane.add(txtCodCaixa);
 		
 		lblCod = new JLabel("Id caixa:");
 		lblCod.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCod.setBounds(10, 47, 86, 26);
+		lblCod.setBounds(26, 47, 86, 26);
 		contentPane.add(lblCod);	
 	}
 	
 	
 	private void addDataAbertura() {
 		txtDataCaixa = new JTextField();
+		txtDataCaixa.setForeground(Color.BLACK);
 		txtDataCaixa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		txtDataCaixa.setColumns(10);
-		txtDataCaixa.setBounds(99, 118, 86, 29);
+		txtDataCaixa.setBounds(122, 107, 261, 29);
 		contentPane.add(txtDataCaixa);
 		
 		lblData = new JLabel("Data abertura:");
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblData.setBounds(10, 119, 86, 26);
+		lblData.setBounds(26, 108, 86, 26);
 		contentPane.add(lblData);		
 	}
 	
 	
 	private void addResponsavel() {
 		txtResponsavel = new JComboBox<String>();
-		txtResponsavel.setForeground(new Color(0, 0, 0));
-		txtResponsavel.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Jose", "Carlos"}));
-		txtResponsavel.setBounds(99, 192, 261, 29);
+		txtResponsavel.setBackground(Color.WHITE);
+		txtResponsavel.setForeground(Color.BLACK);
+		txtResponsavel.setModel(new DefaultComboBoxModel<String>(new String[] {"", "Jose", "Carlos", "Pedro"}));
+		txtResponsavel.setBounds(122, 240, 261, 29);
 		contentPane.add(txtResponsavel);
 		
 		lblResponsavel = new JLabel("Responsável:");
 		lblResponsavel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblResponsavel.setBounds(10, 193, 86, 26);
+		lblResponsavel.setBounds(27, 241, 86, 26);
 		contentPane.add(lblResponsavel);
 	}
 	
@@ -99,7 +106,7 @@ public class Form_AbrirCaixa extends JFrame {
 			}
 		});
 		btnLiberar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnLiberar.setBounds(257, 264, 103, 37);
+		btnLiberar.setBounds(122, 303, 261, 37);
 		contentPane.add(btnLiberar);		
 	}
 	
@@ -113,7 +120,7 @@ public class Form_AbrirCaixa extends JFrame {
 				Msgs.ObjetoNaoImplementado();	
 			}
 		});
-		btnExcluir.setBounds(93, 264, 103, 37);
+		btnExcluir.setBounds(122, 370, 261, 37);
 		contentPane.add(btnExcluir);
 	}
 	
@@ -121,7 +128,7 @@ public class Form_AbrirCaixa extends JFrame {
 	 * Definidor de layaut da tele
 	 */
 	private void defineLayaut() {		
-		setBounds(200, 150, 407, 400);
+		setBounds(200, 150, 499, 506);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);	

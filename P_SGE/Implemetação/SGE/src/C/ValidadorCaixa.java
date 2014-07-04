@@ -10,11 +10,11 @@ public class ValidadorCaixa {
 	 * @param data
 	 */
 	public static void validadata(String data){
-		if (data == null){
+		if (data.equals("")){
 			Msgs.msg("Data de abertura inválida!");	
 		}else{
 			AbreCaixa.setDateAbertura(data);
-			Msgs.msg("ok!");				
+			Msgs.msg("Caixa liberado com sucesso!");				
 		}		
 	}	
 	
@@ -24,7 +24,7 @@ public class ValidadorCaixa {
 	 * @param nome
 	 */
 	public static void validaFuncionario(String nome){		
-		if (AbreCaixa.getFucionario() == null){
+		if (AbreCaixa.getFucionario().equals("")){
 			Msgs.msg("Responsavel inválido!");			
 		}else{			
 			AbreCaixa.setFucionario(nome);
@@ -38,8 +38,8 @@ public class ValidadorCaixa {
 	public static void validaSaldo(int saldo){
 		Msgs.msg(saldo);
 		if (AbreCaixa.getSaldoInicial() == 0){
-			Msgs.msg("Seu saldo e zero deseja seguir assim mesmo!");
-			AbreCaixa.setSaldoInicial(saldo);
+			Msgs.msg("Seu saldo e zero deseja seguir assim mesmo!");			
 		}
+		AbreCaixa.setSaldoInicial(saldo);
 	}
 }
