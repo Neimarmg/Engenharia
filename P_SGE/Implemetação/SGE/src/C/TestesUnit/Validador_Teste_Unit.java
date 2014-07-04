@@ -18,12 +18,12 @@ public class Validador_Teste_Unit {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//Prints.msg("BeforeClass <--> Passei pelo setUpBeforeClass - Antes da classe.");
+		//Prints.msg("BeforeClass <--> setUpBeforeClass - Antes da classe.");
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		//Prints.msg("AfterClass <--> Passei pelo tearDownAfterClass - Depois da Classe");
+		//Prints.msg("AfterClass <--> tearDownAfterClass - Depois da Classe");
 	}
 
 	@Before
